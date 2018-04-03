@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name="port" default="/dev/ttyACM0"/>
+<arg name="mode" default="quaternion-euler-heading"/>
+<arg name="quaternion" default="true"/>
+<arg name="gyroscope" default="false"/>
+<arg name="euler" default="true"/>
+<arg name="accelerometer" default="false"/>
+<arg name="magnetometer" default="false"/>
+<arg name="heading" default="true"/>
+
+<node pkg="vmu931_imu" type="vmu931_imu_node.py" name="imu">
+	<param name="port" value="$(arg port)"/>
+	<!-- quaternion-euler-heading gyro-accel-mag custom -->
+	<param name="mode" value="$(arg mode)"/>
+	<param name="quaternion" value="$(arg quaternion)"/>
+	<param name="gyroscope" value="$(arg gyroscope)"/>
+	<param name="euler" value="$(arg euler)"/>
+	<param name="accelerometer" value="$(arg accelerometer)"/>
+	<param name="magnetometer" value="$(arg magnetometer)"/>
+	<param name="heading" value="$(arg heading)"/>
+</node>
+	
+</launch>
