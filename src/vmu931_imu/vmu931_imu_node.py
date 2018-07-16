@@ -468,9 +468,9 @@ class Vmu931Node:
 					
 			if msg == vmu.ACCELEROMETERS:
 				self._accel_msg.header.stamp = current_time
-				self._accel_msg.vector.x = math.radians(acc.x)
-				self._accel_msg.vector.y = math.radians(acc.y)
-				self._accel_msg.vector.z = math.radians(acc.z)
+				self._accel_msg.vector.x = acc.x*9.81
+				self._accel_msg.vector.y = acc.y*9.81
+				self._accel_msg.vector.z = acc.z*9.81
 				self._accel_publisher.publish(self._accel_msg)
 					
 			if msg == vmu.MAGNETOMETERS:
